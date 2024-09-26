@@ -3,7 +3,8 @@ import {LogBox, Text, TextInput, Alert} from 'react-native';
 import {store, persistor} from './src/redux/store';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-
+import { View, StyleSheet } from 'react-native';
+import Slider from '@react-native-community/slider';
 import 'react-native-gesture-handler';
 
 import NetInfo from '@react-native-community/netinfo';
@@ -36,6 +37,19 @@ if (TextInput.defaultProps == null) {
 
 const App = () => {
   const [isConnected, setIsConnected] = useState(true);
+  const [dailyLivingValue, setDailyLivingValue] = useState(0);
+  const [tasksValue, setTasksValue] = useState(0);
+  const [medicationsValue, setMedicationsValue] = useState(0);
+
+  const getSliderLabel = (value) => {
+    if (value === 0) {
+      return 'Independent';
+    } else if (value === 0.5) {
+      return 'Concerned';
+    } else {
+      return 'Needs Help for Health and Safety';
+    }
+  };
 
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
@@ -116,7 +130,69 @@ const App = () => {
       <SocketProvider>
       <PersistGate loading={null} persistor={persistor}>
       <NotificationProvider>
-            <AuthStack />
+            {/* <AuthStack /> */}
+
+            <View style={styles.container}>
+      <Text style={styles.header}>Types of sources and assistance</Text>
+      
+      {/* Activities of Daily Living */}
+      {/* <Text style={styles.question}>What type of support do they need with daily activities?</Text> */}
+      <Slider
+        style={styles.slider}
+        minimumValue={0}
+        maximumValue={1}
+        step={0.5}
+        minimumTrackTintColor="#00b300"
+        maximumTrackTintColor="#ff1a1a"
+        thumbTintColor="#000"
+        value={dailyLivingValue}
+        onValueChange={(value) => setDailyLivingValue(value)}
+      />
+      <Text style={styles.label}>{getSliderLabel(dailyLivingValue)}	</Text>
+
+      {/* Tasks for Independence */}
+      {/* <Text style={styles.question}>Do they need help with tasks that keep them independent?</Text> */}
+      <Slider
+        style={styles.slider}
+        minimumValue={0}
+        maximumValue={1}
+        step={0.5}
+        minimumTrackTintColor="#00b300"
+        maximumTrackTintColor="#ff1a1a"
+        thumbTintColor="#000"
+        value={tasksValue}
+        onValueChange={(value) => setTasksValue(value)}
+      />
+      <Text style={styles.label}>{getSliderLabel(tasksValue)}</Text>
+
+      {/* Medication Management */}
+      {/* <Text style={styles.question}>Do they need assistance with medications or medical tasks?</Text> */}
+      <Slider
+        style={styles.slider}
+        minimumValue={0}
+        maximumValue={1}
+        step={0.5}
+        minimumTrackTintColor="#00b300"
+        maximumTrackTintColor="#ff1a1a"
+        thumbTintColor="#000"
+        value={medicationsValue}
+        onValueChange={(value) => setMedicationsValue(value)}
+      />
+      <Text style={styles.label}>{getSliderLabel(medicationsValue)}</Text>
+      {/* <Text style={styles.question}>Do they need assistance with medications or medical tasks?</Text> */}
+      <Slider
+        style={styles.slider}
+        minimumValue={0}
+        maximumValue={1}
+        step={0.5}
+        minimumTrackTintColor="#00b300"
+        maximumTrackTintColor="#ff1a1a"
+        thumbTintColor="#000"
+        value={medicationsValue}
+        onValueChange={(value) => setMedicationsValue(value)}
+      />
+      <Text style={styles.label}>{getSliderLabel(medicationsValue)}</Text>
+    </View>
           </NotificationProvider>
         
       </PersistGate>
@@ -126,3 +202,35 @@ const App = () => {
 };
 
 export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#f7f7f7',
+    color:'black',
+  },
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+    color:'black',
+  },
+  question: {
+    fontSize: 18,
+    marginTop: 20,
+    color:'black',
+  },
+  slider: {
+    width: '100%',
+    height: 40,
+    color:'black',
+  },
+  label: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 10,
+    color:'black',
+  },
+});

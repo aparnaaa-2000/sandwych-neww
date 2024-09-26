@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "299563403687",
+    "project_id": "sandwych",
+    "storage_bucket": "sandwych.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299563403687:android:a85a967990f372e7328e82",
+        "android_client_info": {
+          "package_name": "com.sandwychprototype"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRYqdOkS51SYCHEsoPO8B3MmdLD2Q-Nb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
