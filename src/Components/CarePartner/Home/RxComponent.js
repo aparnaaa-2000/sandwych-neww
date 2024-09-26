@@ -62,6 +62,10 @@ const RxComponent = () => {
             <Text style={styles.dirStyle}>Directions</Text>
           </TouchableOpacity>
         </View>
+        <View style={styles.ine}>
+          <Text style={styles.received}>Received</Text>
+          <Text style={styles.med}>Medication Ready</Text>
+        </View>
       </View>
     </>
   );
@@ -73,6 +77,20 @@ const styles = new StyleSheet.create({
     backgroundColor: PUREWHITE,
     width: DEFAULTWIDTH * 0.90,
     borderRadius: GlobalSize(8)
+  },
+  ine: {
+    flexDirection: 'row',        // Align items in a row
+    justifyContent: 'space-between',  // Space between the items
+    alignItems: 'center',        // Vertically align items
+    padding: 10,                 // Optional: Add some padding if needed
+  },
+  received: {
+    fontSize: 16,                // Example style for the 'Received' text
+    color: '#ffde21',             // Customize the color
+  },
+  med: {
+    fontSize: 16,                // Example style for 'Medication Ready' text
+    color: 'green',              // Customize the color
   },
   cardSubView: {
     padding: GlobalSize(10),

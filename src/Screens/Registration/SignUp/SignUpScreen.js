@@ -275,6 +275,18 @@ const SignUpScreen = ({ navigation }) => {
                 </View>
               </View>
             </View>
+            <View style={styles.viewTextInput}>
+            <TextInput
+                      maxLength={30}
+                      value={Email}
+                      keyboardType={'numeric'}
+                      
+                      style={[styles.inputArea, {width: DEFAULTWIDTH * 0.65}]}
+                      placeholder="Enter your referal code"
+                      placeholderTextColor={PLACEHOLDERCOLOR3}
+                    />
+            </View>
+
 
 
             {/* <View style={styles.viewSend}>

@@ -4,8 +4,8 @@ import {store, persistor} from './src/redux/store';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import { View, StyleSheet } from 'react-native';
-import Slider from '@react-native-community/slider';
-import 'react-native-gesture-handler';
+// import Slider from '@react-native-community/slider';
+// import 'react-native-gesture-handler';
 
 import NetInfo from '@react-native-community/netinfo';
 import AuthStack from './src/Navigation/Main/authstack';
@@ -36,20 +36,20 @@ if (TextInput.defaultProps == null) {
 }
 
 const App = () => {
-  const [isConnected, setIsConnected] = useState(true);
-  const [dailyLivingValue, setDailyLivingValue] = useState(0);
-  const [tasksValue, setTasksValue] = useState(0);
-  const [medicationsValue, setMedicationsValue] = useState(0);
+  // const [isConnected, setIsConnected] = useState(true);
+  // const [dailyLivingValue, setDailyLivingValue] = useState(0);
+  // const [tasksValue, setTasksValue] = useState(0);
+  // const [medicationsValue, setMedicationsValue] = useState(0);
 
-  const getSliderLabel = (value) => {
-    if (value === 0) {
-      return 'Independent';
-    } else if (value === 0.5) {
-      return 'Concerned';
-    } else {
-      return 'Needs Help for Health and Safety';
-    }
-  };
+  // const getSliderLabel = (value) => {
+  //   if (value === 0) {
+  //     return 'No, they are independent';
+  //   } else if (value === 0.5) {
+  //     return 'I’m concerned	for their health and safety';
+  //   } else {
+  //     return 'Yes they need help';
+  //   }
+  // };
 
   useEffect(() => {
     const unsubscribe = NetInfo.addEventListener(state => {
@@ -130,13 +130,11 @@ const App = () => {
       <SocketProvider>
       <PersistGate loading={null} persistor={persistor}>
       <NotificationProvider>
-            {/* <AuthStack /> */}
-
+            <AuthStack />
+{/* 
             <View style={styles.container}>
       <Text style={styles.header}>Types of sources and assistance</Text>
-      
-      {/* Activities of Daily Living */}
-      {/* <Text style={styles.question}>What type of support do they need with daily activities?</Text> */}
+
       <Slider
         style={styles.slider}
         minimumValue={0}
@@ -150,8 +148,7 @@ const App = () => {
       />
       <Text style={styles.label}>{getSliderLabel(dailyLivingValue)}	</Text>
 
-      {/* Tasks for Independence */}
-      {/* <Text style={styles.question}>Do they need help with tasks that keep them independent?</Text> */}
+
       <Slider
         style={styles.slider}
         minimumValue={0}
@@ -165,8 +162,7 @@ const App = () => {
       />
       <Text style={styles.label}>{getSliderLabel(tasksValue)}</Text>
 
-      {/* Medication Management */}
-      {/* <Text style={styles.question}>Do they need assistance with medications or medical tasks?</Text> */}
+
       <Slider
         style={styles.slider}
         minimumValue={0}
@@ -179,7 +175,7 @@ const App = () => {
         onValueChange={(value) => setMedicationsValue(value)}
       />
       <Text style={styles.label}>{getSliderLabel(medicationsValue)}</Text>
-      {/* <Text style={styles.question}>Do they need assistance with medications or medical tasks?</Text> */}
+   
       <Slider
         style={styles.slider}
         minimumValue={0}
@@ -192,7 +188,7 @@ const App = () => {
         onValueChange={(value) => setMedicationsValue(value)}
       />
       <Text style={styles.label}>{getSliderLabel(medicationsValue)}</Text>
-    </View>
+    </View> */}
           </NotificationProvider>
         
       </PersistGate>
