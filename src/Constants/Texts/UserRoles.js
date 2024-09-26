@@ -1,0 +1,4 @@
+export const CAREPARTNER = "CARE PARTNER"
+export const CASEMANAGER = "CASE MANAGER"
+export const SUPPORTMEMBER = "SUPPORT MEMBER"
+export const PATIENT = "PATIENT"

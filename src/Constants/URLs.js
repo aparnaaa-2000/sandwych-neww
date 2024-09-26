@@ -1,0 +1,1 @@
+export const SANDWYCHCOMMUNITY = "https://www.sandwych.net/community/"
