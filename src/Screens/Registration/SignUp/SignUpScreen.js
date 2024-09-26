@@ -278,7 +278,7 @@ const SignUpScreen = ({ navigation }) => {
             <View style={styles.viewTextInput}>
             <TextInput
                       maxLength={30}
-                      value={Email}
+                      
                       keyboardType={'numeric'}
                       
                       style={[styles.inputArea, {width: DEFAULTWIDTH * 0.65}]}
